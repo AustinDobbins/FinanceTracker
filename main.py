@@ -1,7 +1,7 @@
 import csv
 import psycopg2
 
-keywords= {
+keywords = {
     'atm': ['atm ', 'atm withdrawal'],
     'gas': ['speedway', 'exxon', 'chevron', 'shell', 'gas', 'petroleum', 'arco', ' 76 ', 'safeway fuel', 'valero'],
     'grocery': ['sprouts', 'glacier', 'walmart' 'grocery', 'groceries', 'safeway', 'wal-mart', 'costco'],
@@ -61,8 +61,6 @@ def sort_transactions():
 
             if status=='unused':
                 misc.append(transaction)
-            
-    del atm, gas, groceries, car, business, misc, income
 
 def get_category_id(category_name):
     connection = psycopg2.connect(user="postgres",
@@ -98,6 +96,3 @@ def insert_expenses():
         print("PostgreSQL connection is closed")
 
 insert_expenses()
-
-
-
